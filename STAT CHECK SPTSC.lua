@@ -1,4 +1,3 @@
-
 local gui = Instance.new("ScreenGui")
 local main = Instance.new("Frame")
 local label = Instance.new("TextLabel")
@@ -7,6 +6,10 @@ local YouNoob = Instance.new("TextButton")
 local Noob = Instance.new("TextLabel")
 local Checker = Instance.new("TextBox")
 local del = Instance.new("TextButton")
+local min = Instance.new("TextButton")
+local show = Instance.new("TextButton")
+local cycle = Instance.new("TextButton")
+local cycle2 = Instance.new("TextButton")
 
 local fs = Instance.new("TextLabel")
 local bt = Instance.new("TextLabel")
@@ -19,6 +22,8 @@ local kills = Instance.new("TextLabel")
 local rep = Instance.new("TextLabel")
 local tokens = Instance.new("TextLabel")
 
+_G.xyu = true
+
 gui.Parent = game.CoreGui
 gui.Name = "gui"
 
@@ -30,6 +35,7 @@ main.Size = UDim2.new(0, 500, 0, 300)
 main.BorderColor3 = Color3.fromRGB(255,0,0)
 main.BorderSizePixel = 2
 main.Active = true
+main.Visible = true
 main.Draggable = true
 
 label.Name = "label"
@@ -37,7 +43,7 @@ label.Parent = main
 label.BackgroundColor3 = Color3.fromRGB(0,0,0)
 label.Size = UDim2.new(0, 500,0, 38)
 label.Font = Enum.Font.SciFi
-label.Text = "STAT VIEWER V.1.0"
+label.Text = "STAT VIEWER V.1.1"
 label.TextColor3 = Color3.fromRGB(255, 0, 0)
 label.TextSize = 35
 
@@ -76,9 +82,47 @@ del.BackgroundColor3 = Color3.fromRGB(255,0,0)
 del.Position = UDim2.new(0.951, 0,0.026, 0)
 del.Size = UDim2.new(0, 14,0, 14)
 del.Font = Enum.Font.SourceSans
-del.Text = ""
+del.TextSize = 25
+del.Text = " X"
 
+min.Name = "Min"
+min.Parent = main
+min.BackgroundColor3 = Color3.fromRGB(255,0,0)
+min.Position = UDim2.new(0.901, 0,0.026, 0)
+min.Size = UDim2.new(0, 14,0, 14)
+min.Font = Enum.Font.SourceSans
+min.TextSize = 25
+min.Text = "-"
+min.Visible = true
 
+show.Name = "Show"
+show.Parent = gui
+show.BackgroundColor3 = Color3.fromRGB(255,0,0)
+show.Position = UDim2.new(0.960, 0,0.7,7, 0)
+show.Size = UDim2.new(0, 22,0, 22)
+show.Font = Enum.Font.SourceSans
+show.TextSize = 25
+show.Text = "+"
+show.Visible = false
+
+cycle.Name = "loop"
+cycle.Parent = main
+cycle.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+cycle.Position = UDim2.new(0.760, 0,0.149, 0)
+cycle.Size = UDim2.new(0, 22,0, 16)
+cycle.Font = Enum.Font.SourceSans
+cycle.TextSize = 13
+cycle.Text = "loop"
+
+cycle2.Name = "loop2"
+cycle2.Parent = main
+cycle2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+cycle2.Position = UDim2.new(0.760, 0,0.149, 0)
+cycle2.Size = UDim2.new(0, 22,0, 16)
+cycle2.Font = Enum.Font.SourceSans
+cycle2.TextSize = 13
+cycle2.Text = "loop"
+cycle2.Visible = false
 
 bt.Name = "bt"
 bt.Parent = main
@@ -88,6 +132,7 @@ bt.Position = UDim2.new(0.0, 0,0.416, 0)
 bt.Size = UDim2.new(0, 312,0, 34)
 bt.TextColor3 = Color3.fromRGB(0, 0, 0)
 bt.TextSize = 20
+bt.Visible = false
 
 fs.Name = "fs"
 fs.Parent = main
@@ -97,6 +142,7 @@ fs.Position = UDim2.new(0.0, 0,0.308, 0)
 fs.Size = UDim2.new(0, 312,0, 32)
 fs.TextColor3 = Color3.fromRGB(0, 0, 0)
 fs.TextSize = 20
+fs.Visible = false
 
 ms.Name = "ms"
 ms.Parent = main
@@ -106,6 +152,7 @@ ms.Position = UDim2.new(0.0, 0,0.526, 0)
 ms.Size = UDim2.new(0, 312,0, 34)
 ms.TextColor3 = Color3.fromRGB(0, 0, 0)
 ms.TextSize = 20
+ms.Visible = false
 
 jf.Name = "jf"
 jf.Parent = main
@@ -115,6 +162,7 @@ jf.Position = UDim2.new(0.0, 0,0.636, 0)
 jf.Size = UDim2.new(0, 312,0, 34)
 jf.TextColor3 = Color3.fromRGB(0, 0, 0)
 jf.TextSize = 20
+jf.Visible = false
 
 pp.Name = "pp"
 pp.Parent = main
@@ -124,6 +172,7 @@ pp.Position = UDim2.new(0.0, 0,0.747, 0)
 pp.Size = UDim2.new(0, 312,0, 34)
 pp.TextColor3 = Color3.fromRGB(0, 0, 0)
 pp.TextSize = 20
+pp.Visible = false
 
 Time.Name = "Time"
 Time.Parent = main
@@ -133,6 +182,7 @@ Time.Position = UDim2.new(0.0, 0,0.857, 0)
 Time.Size = UDim2.new(0, 244,0, 44)
 Time.TextColor3 = Color3.fromRGB(0, 0, 0)
 Time.TextSize = 20
+Time.Visible = false
 
 VipTime.Name = "Time"
 VipTime.Parent = main
@@ -142,6 +192,7 @@ VipTime.Position = UDim2.new(0.49, 0,0.857, 0)
 VipTime.Size = UDim2.new(0, 255,0, 44)
 VipTime.TextColor3 = Color3.fromRGB(0, 0, 0)
 VipTime.TextSize = 20
+VipTime.Visible = false
 
 kills.Name = "kills"
 kills.Parent = main
@@ -151,6 +202,7 @@ kills.Position = UDim2.new(0.628, 0,0.305, 0)
 kills.Size = UDim2.new(0, 185,0, 62)
 kills.TextColor3 = Color3.fromRGB(0, 0, 0)
 kills.TextSize = 20
+kills.Visible = false
 
 rep.Name = "rep"
 rep.Parent = main
@@ -160,6 +212,7 @@ rep.Position = UDim2.new(0.628, 0,0.51, 0)
 rep.Size = UDim2.new(0, 185,0, 61)
 rep.TextColor3 = Color3.fromRGB(0, 0, 0)
 rep.TextSize = 20
+rep.Visible = false
 
 tokens.Name = "tokens"
 tokens.Parent = main
@@ -169,6 +222,7 @@ tokens.Position = UDim2.new(0.628, 0,0.709, 0)
 tokens.Size = UDim2.new(0, 185,0, 45)
 tokens.TextColor3 = Color3.fromRGB(0, 0, 0)
 tokens.TextSize = 20
+tokens.Visible = false
 
 function converttoletter(num)
 	if num / 1e24 >=1 then
@@ -207,6 +261,17 @@ end
 StatCheck.MouseButton1Down:Connect(function()
 	for i,v in pairs(game.Players:GetChildren()) do
 		if v.Name == Checker.Text then
+			bt.Visible = true
+			fs.Visible = true
+			ms.Visible = true
+			jf.Visible = true
+			pp.Visible = true
+			Time.Visible = true
+			VipTime.Visible = true
+			kills.Visible = true
+			rep.Visible = true
+			tokens.Visible = true
+			while _G.xyu do
 			bt.Text = "BT: ".. converttoletter(v.PlayerFolder.DataFolder.BT.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.BTMulti.Value)
 			fs.Text = "FS: ".. converttoletter(v.PlayerFolder.DataFolder.FS.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.FSMulti.Value)
 			ms.Text = "MS: ".. converttoletter(v.PlayerFolder.DataFolder.WS.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.WSMulti.Value)
@@ -217,6 +282,8 @@ StatCheck.MouseButton1Down:Connect(function()
 			kills.Text = "Kills: ".. v.PlayerFolder.DataFolder.Kills.Value
 			rep.Text = "Rep: ".. v.PlayerFolder.DataFolder.Reputation.Value
 			tokens.Text = "Tokens: ".. converttoletter(v.PlayerFolder.DataFolder.Tokens.Value)
+				task.wait(0.5)
+			end
 		end
 	end
 end)
@@ -236,6 +303,24 @@ YouNoob.MouseButton1Down:Connect(function()
 	Noob.Draggable = true
 end)
 
+cycle.MouseButton1Down:Connect(function()
+	_G.xyu = false
+	cycle.Visible = false
+	cycle2.Visible = true
+end)
+cycle2.MouseButton1Down:Connect(function()
+	_G.xyu = true
+	cycle.Visible = true
+	cycle2.Visible = false
+end)
 del.MouseButton1Down:Connect(function()
 	game.CoreGui.gui:Remove()
+end)
+min.MouseButton1Down:Connect(function()
+	main.Visible = false
+	show.Visible = true
+end)
+show.MouseButton1Down:Connect(function()
+	main.Visible = true
+	show.Visible = false
 end)
