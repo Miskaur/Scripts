@@ -257,32 +257,33 @@ function Timer(num)
 end
 
 StatCheck.MouseButton1Down:Connect(function()
+	_G.xyu = false
+	wait(0.2)
+	bt.Visible = true
+	fs.Visible = true
+	ms.Visible = true
+	jf.Visible = true
+	pp.Visible = true
+	Time.Visible = true
+	VipTime.Visible = true
+	kills.Visible = true
+	rep.Visible = true
+	tokens.Visible = true
 	for i,v in pairs(game.Players:GetChildren()) do
 		if v.Name == Checker.Text then
-			_G.xyu = false
-			bt.Visible = true
-			fs.Visible = true
-			ms.Visible = true
-			jf.Visible = true
-			pp.Visible = true
-			Time.Visible = true
-			VipTime.Visible = true
-			kills.Visible = true
-			rep.Visible = true
-			tokens.Visible = true
 			_G.xyu = true
 			while _G.xyu do
-			bt.Text = "BT: ".. converttoletter(v.PlayerFolder.DataFolder.BT.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.BTMulti.Value)
-			fs.Text = "FS: ".. converttoletter(v.PlayerFolder.DataFolder.FS.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.FSMulti.Value)
-			ms.Text = "MS: ".. converttoletter(v.PlayerFolder.DataFolder.WS.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.WSMulti.Value)
-			jf.Text = "JF: ".. converttoletter(v.PlayerFolder.DataFolder.JF.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.JFMulti.Value)
-			pp.Text = "PP: ".. converttoletter(v.PlayerFolder.DataFolder.PP.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.PPMulti.Value)
-			Time.Text = "Time: ".. Timer(v.PlayerFolder.DataFolder.TimePlayed.Value)
-			VipTime.Text = "VIPTime: ".. Timer(v.PlayerFolder.DataFolder.VIPTime.Value)
-			kills.Text = "Kills: ".. v.PlayerFolder.DataFolder.Kills.Value
-			rep.Text = "Rep: ".. v.PlayerFolder.DataFolder.Reputation.Value
-			tokens.Text = "Tokens: ".. converttoletter(v.PlayerFolder.DataFolder.Tokens.Value)
-				task.wait(0.5)
+				bt.Text = "BT: ".. converttoletter(v.PlayerFolder.DataFolder.BT.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.BTMulti.Value)
+				fs.Text = "FS: ".. converttoletter(v.PlayerFolder.DataFolder.FS.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.FSMulti.Value)
+				ms.Text = "MS: ".. converttoletter(v.PlayerFolder.DataFolder.WS.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.WSMulti.Value)
+				jf.Text = "JF: ".. converttoletter(v.PlayerFolder.DataFolder.JF.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.JFMulti.Value)
+				pp.Text = "PP: ".. converttoletter(v.PlayerFolder.DataFolder.PP.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.PPMulti.Value)
+				Time.Text = "Time: ".. Timer(v.PlayerFolder.DataFolder.TimePlayed.Value)
+				VipTime.Text = "VIPTime: ".. Timer(v.PlayerFolder.DataFolder.VIPTime.Value)
+				kills.Text = "Kills: ".. v.PlayerFolder.DataFolder.Kills.Value
+				rep.Text = "Rep: ".. v.PlayerFolder.DataFolder.Reputation.Value
+				tokens.Text = "Tokens: ".. converttoletter(v.PlayerFolder.DataFolder.Tokens.Value)
+				task.wait(0.1)
 			end
 		end
 	end
