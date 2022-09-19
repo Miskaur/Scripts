@@ -22,8 +22,6 @@ local kills = Instance.new("TextLabel")
 local rep = Instance.new("TextLabel")
 local tokens = Instance.new("TextLabel")
 
-_G.xyu = true
-
 gui.Parent = game.CoreGui
 gui.Name = "gui"
 
@@ -261,6 +259,7 @@ end
 StatCheck.MouseButton1Down:Connect(function()
 	for i,v in pairs(game.Players:GetChildren()) do
 		if v.Name == Checker.Text then
+			_G.xyu = false
 			bt.Visible = true
 			fs.Visible = true
 			ms.Visible = true
@@ -271,6 +270,7 @@ StatCheck.MouseButton1Down:Connect(function()
 			kills.Visible = true
 			rep.Visible = true
 			tokens.Visible = true
+			_G.xyu = true
 			while _G.xyu do
 			bt.Text = "BT: ".. converttoletter(v.PlayerFolder.DataFolder.BT.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.BTMulti.Value)
 			fs.Text = "FS: ".. converttoletter(v.PlayerFolder.DataFolder.FS.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.FSMulti.Value)
