@@ -8,8 +8,11 @@ local Checker = Instance.new("TextBox")
 local del = Instance.new("TextButton")
 local min = Instance.new("TextButton")
 local show = Instance.new("TextButton")
-local cycle = Instance.new("TextButton")
-local cycle2 = Instance.new("TextButton")
+local creditsopen = Instance.new("TextButton")
+local credits = Instance.new("Frame")
+local creditstext = Instance.new("TextLabel")
+local creditstextQ = Instance.new("TextLabel")
+local creditstextW = Instance.new("TextLabel")
 
 local fs = Instance.new("TextLabel")
 local bt = Instance.new("TextLabel")
@@ -41,7 +44,7 @@ label.Parent = main
 label.BackgroundColor3 = Color3.fromRGB(0,0,0)
 label.Size = UDim2.new(0, 500,0, 38)
 label.Font = Enum.Font.SciFi
-label.Text = "STAT VIEWER V.1.1"
+label.Text = "STAT VIEWER V.1.0"
 label.TextColor3 = Color3.fromRGB(255, 0, 0)
 label.TextSize = 35
 
@@ -81,7 +84,7 @@ del.Position = UDim2.new(0.951, 0,0.026, 0)
 del.Size = UDim2.new(0, 14,0, 14)
 del.Font = Enum.Font.SourceSans
 del.TextSize = 25
-del.Text = " X"
+del.Text = "X"
 
 min.Name = "Min"
 min.Parent = main
@@ -103,24 +106,62 @@ show.TextSize = 25
 show.Text = "+"
 show.Visible = false
 
-cycle.Name = "loop"
-cycle.Parent = main
-cycle.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
-cycle.Position = UDim2.new(0.760, 0,0.149, 0)
-cycle.Size = UDim2.new(0, 22,0, 16)
-cycle.Font = Enum.Font.SourceSans
-cycle.TextSize = 13
-cycle.Text = "loop"
+creditsopen.Name = "CrOpen"
+creditsopen.Parent = main
+creditsopen.BackgroundColor3 = Color3.fromRGB(255,0,0)
+creditsopen.Position = UDim2.new(0, 0,0,0.9, 0)
+creditsopen.Size = UDim2.new(0, 70,0, 20)
+creditsopen.Font = Enum.Font.SourceSans
+creditsopen.TextSize = 25
+creditsopen.Text = "Credits"
+creditsopen.Visible = true
 
-cycle2.Name = "loop2"
-cycle2.Parent = main
-cycle2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-cycle2.Position = UDim2.new(0.760, 0,0.149, 0)
-cycle2.Size = UDim2.new(0, 22,0, 16)
-cycle2.Font = Enum.Font.SourceSans
-cycle2.TextSize = 13
-cycle2.Text = "loop"
-cycle2.Visible = false
+credits.Name = "credits"
+credits.Parent = gui
+credits.BackgroundColor3 = Color3.fromRGB(0,0,0)
+credits.Position = UDim2.new(0.450, 0,0.435,0)
+credits.BorderColor3 = Color3.fromRGB(255,0,0)
+credits.Size = UDim2.new(0, 250,0, 200)
+credits.BorderSizePixel = 1.9
+credits.Active = true
+credits.Visible = false
+credits.Draggable = true
+
+creditstext.Name = "Credt"
+creditstext.Parent = credits
+creditstext.Text = "noy#4469 - main dev"
+creditstext.BackgroundColor3 = Color3.fromRGB(0,0,0)
+creditstext.BorderColor3 = Color3.fromRGB(255,0,0)
+creditstext.Position = UDim2.new(0, 1,0.13, 0)
+creditstext.Font = Enum.Font.SourceSans
+creditstext.Size = UDim2.new(0, 249,0, 30)
+creditstext.TextColor3 = Color3.fromRGB(200, 200, 200)
+creditstext.TextSize = 20
+creditstext.Visible = true
+
+creditstextQ.Name = "CredtQ"
+creditstextQ.Parent = credits
+creditstextQ.Text = "Jayplayp#3449 - UI helper"
+creditstextQ.BackgroundColor3 = Color3.fromRGB(0,0,0)
+creditstextQ.BorderColor3 = Color3.fromRGB(255,0,0)
+creditstextQ.Position = UDim2.new(0, 1,0.28, 0)
+creditstextQ.Font = Enum.Font.SourceSans
+creditstextQ.Size = UDim2.new(0, 249,0, 30)
+creditstextQ.TextColor3 = Color3.fromRGB(200, 200, 200)
+creditstextQ.TextSize = 20
+creditstextQ.Visible = true
+
+creditstextW.Name = "CredtW"
+creditstextW.Parent = credits
+creditstextW.Text = "if you have issues dm noy"
+creditstextW.BackgroundColor3 = Color3.fromRGB(0,0,0)
+creditstextW.BorderColor3 = Color3.fromRGB(255,0,0)
+creditstextW.Position = UDim2.new(0, 1,0.86, 0)
+creditstextW.Font = Enum.Font.SourceSans
+creditstextW.Size = UDim2.new(0, 249,0, 30)
+creditstextW.TextColor3 = Color3.fromRGB(200, 200, 200)
+creditstextW.TextSize = 20
+creditstextW.Visible = true
 
 bt.Name = "bt"
 bt.Parent = main
@@ -257,35 +298,29 @@ function Timer(num)
 end
 
 StatCheck.MouseButton1Down:Connect(function()
-	_G.xyu = false
-	wait(0.2)
-	bt.Visible = true
-	fs.Visible = true
-	ms.Visible = true
-	jf.Visible = true
-	pp.Visible = true
-	Time.Visible = true
-	VipTime.Visible = true
-	kills.Visible = true
-	rep.Visible = true
-	tokens.Visible = true
 	for i,v in pairs(game.Players:GetChildren()) do
 		if v.Name == Checker.Text then
-			_G.xyu = true
-			while _G.xyu do
-				bt.Text = "BT: ".. converttoletter(v.PlayerFolder.DataFolder.BT.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.BTMulti.Value)
-				fs.Text = "FS: ".. converttoletter(v.PlayerFolder.DataFolder.FS.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.FSMulti.Value)
-				ms.Text = "MS: ".. converttoletter(v.PlayerFolder.DataFolder.WS.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.WSMulti.Value)
-				jf.Text = "JF: ".. converttoletter(v.PlayerFolder.DataFolder.JF.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.JFMulti.Value)
-				pp.Text = "PP: ".. converttoletter(v.PlayerFolder.DataFolder.PP.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.PPMulti.Value)
-				Time.Text = "Time: ".. Timer(v.PlayerFolder.DataFolder.TimePlayed.Value)
-				VipTime.Text = "VIPTime: ".. Timer(v.PlayerFolder.DataFolder.VIPTime.Value)
-				kills.Text = "Kills: ".. v.PlayerFolder.DataFolder.Kills.Value
-				rep.Text = "Rep: ".. v.PlayerFolder.DataFolder.Reputation.Value
-				tokens.Text = "Tokens: ".. converttoletter(v.PlayerFolder.DataFolder.Tokens.Value)
-				task.wait(0.1)
-			end
-		end
+            bt.Visible = true
+            fs.Visible = true
+            ms.Visible = true
+            jf.Visible = true
+            pp.Visible = true
+            Time.Visible = true
+            VipTime.Visible = true
+            kills.Visible = true
+            rep.Visible = true
+            tokens.Visible = true
+            bt.Text = "BT: ".. converttoletter(v.PlayerFolder.DataFolder.BT.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.BTMulti.Value)
+            fs.Text = "FS: ".. converttoletter(v.PlayerFolder.DataFolder.FS.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.FSMulti.Value)
+            ms.Text = "MS: ".. converttoletter(v.PlayerFolder.DataFolder.WS.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.WSMulti.Value)
+            jf.Text = "JF: ".. converttoletter(v.PlayerFolder.DataFolder.JF.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.JFMulti.Value)
+            pp.Text = "PP: ".. converttoletter(v.PlayerFolder.DataFolder.PP.Value).. "    x".. converttoletter(v.PlayerFolder.Multipliers.PPMulti.Value)
+            Time.Text = "Time: ".. Timer(v.PlayerFolder.DataFolder.TimePlayed.Value)
+            VipTime.Text = "VIPTime: ".. Timer(v.PlayerFolder.DataFolder.VIPTime.Value)
+            kills.Text = "Kills: ".. v.PlayerFolder.DataFolder.Kills.Value
+            rep.Text = "Rep: ".. v.PlayerFolder.DataFolder.Reputation.Value
+            tokens.Text = "Tokens: ".. converttoletter(v.PlayerFolder.DataFolder.Tokens.Value)
+        end
 	end
 end)
 
@@ -303,25 +338,21 @@ YouNoob.MouseButton1Down:Connect(function()
 	Noob.Active = true
 	Noob.Draggable = true
 end)
-
-cycle.MouseButton1Down:Connect(function()
-	_G.xyu = false
-	cycle.Visible = false
-	cycle2.Visible = true
-end)
-cycle2.MouseButton1Down:Connect(function()
-	_G.xyu = true
-	cycle.Visible = true
-	cycle2.Visible = false
+creditsopen.MouseButton1Down:Connect(function()
+    if credits.Visible == true then
+    credits.Visible = false
+    else 
+    credits.Visible = true   
+    end
 end)
 del.MouseButton1Down:Connect(function()
-	game.CoreGui.gui:Remove()
+    game.CoreGui.gui:Remove()
 end)
 min.MouseButton1Down:Connect(function()
-	main.Visible = false
-	show.Visible = true
+    main.Visible = false
+    show.Visible = true
 end)
 show.MouseButton1Down:Connect(function()
-	main.Visible = true
-	show.Visible = false
+    main.Visible = true
+    show.Visible = false
 end)
