@@ -1,3 +1,4 @@
+function shitgraphics(fps)
 local decalsyeeted = true -- Leaving this on makes games look shitty but the fps goes up by at least 20.
 local g = game
 local w = g.Workspace
@@ -70,4 +71,4 @@ w.DescendantAdded:Connect(function(v)
         v[v.ClassName.."Template"]=0
     end
 end)
-setfpscap(30)
+setfpscap(fps) end
